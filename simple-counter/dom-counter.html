@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter Example (DOM Manipulation)</title>
+  </head>
+  <body>
+    <div id="counter">
+      <h1>Counter: 0</h1>
+      <button id="increment">Increment</button>
+      <button id="decrement">Decrement</button>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Counter state
+        let count = 0;
+
+        // DOM elements
+        const counterElement = document.getElementById("counter");
+        const incrementButton = document.getElementById("increment");
+        const decrementButton = document.getElementById("decrement");
+
+        // Event listeners for increment and decrement
+        incrementButton.addEventListener("click", function () {
+          count++;
+          updateCounter();
+        });
+
+        decrementButton.addEventListener("click", function () {
+          count--;
+          updateCounter();
+        });
+
+        // Function to update the counter in the DOM
+        function updateCounter() {
+          const counterText = `Counter: ${count}`;
+          counterElement.querySelector("h1").textContent = counterText;
+        }
+      });
+    </script>
+  </body>
+</html>
